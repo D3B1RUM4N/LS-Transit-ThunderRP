@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MyUserController;
 use App\Http\Controllers\TarifsController;
-use App\Http\Controllers\FactureController;
+use App\Http\Controllers\FacturesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +38,8 @@ Route::prefix('profile')->middleware('auth.myuser')->group( function(){
     Route::prefix('factures')->group( function(){
         Route::get('/show', [TarifsController::class, 'all'])->name('factures_new');
         Route::view('/add', 'addFacture')->name('view_facture_add');
-        Route::view('/list', 'factures.list')->name('view_factures_list');
+        Route::post('/add', [FacturesController::class, 'create'])->name('facture_add');
+        Route::get('/showlist', [FacturesController::class, 'all'])->name('factures_list');
+        Route::view('/list', 'showFactures')->name('view_factures_list');
     });
 });
