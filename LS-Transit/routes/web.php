@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Patrons
+Route::prefix('patrons')->group( function(){
+
+});
+
+// employees
+Route::prefix('profile')->group( function(){
+
+});
