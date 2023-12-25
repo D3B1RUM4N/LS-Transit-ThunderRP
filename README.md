@@ -20,6 +20,8 @@ Language : French
 - Ajouter/viré des employés
 
 ## Fonctionnalité ajoutée :
-
+- Saisir une facture
+- se connecter au comtpe
+  
 ## Bug connu :
 - ne pas accéder directement a ``profile/factures/add``, cela provoque une erreur
