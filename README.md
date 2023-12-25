@@ -22,3 +22,4 @@ Language : French
 ## Fonctionnalité ajoutée :
 
 ## Bug connu :
+- ne pas accéder directement a ``profile/factures/add``, cela provoque une erreur
