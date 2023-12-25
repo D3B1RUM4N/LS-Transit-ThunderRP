@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'signin');
+Route::view('/signin','signin')->name('view_signin');
+Route::view('/signup', 'signup')->name('view_signup');
+
 
 // Patrons
 Route::prefix('patrons')->group( function(){
