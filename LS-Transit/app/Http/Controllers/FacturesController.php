@@ -33,7 +33,7 @@ class FacturesController extends Controller
 
     public function all() {
         $factures = Factures::all()->filter(function($facture) {
-            return $facture->user_id == session('user')->id;
+            return $facture->login == session('user')->login;
         });
         return view('showFactures', ['factures' => $factures]);
     }
