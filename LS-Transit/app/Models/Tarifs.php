@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Tarifs extends Model
 {
     use HasFactory;
+
+    // timestamp disabled
+    public $timestamps = false;
 }
