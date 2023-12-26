@@ -16,12 +16,10 @@ use App\Http\Controllers\FacturesController;
 |
 */
 
-Route::view('/', 'signin');
+Route::get('/', [MyUserController::class, 'test'])->name('test');
 Route::view('/signin','signin')->name('view_signin');
-Route::view('/signup', 'signup')->name('view_signup');
-
+//Route::view('/signup', 'signup')->name('view_signup');
 Route::post('/authenticate', [MyUserController::class, 'connect'])->name('user_authenticate');
-Route::post('/adduser', [MyUserController::class, 'create'])->name('user_adduser');
 
 // Patrons
 Route::prefix('patrons')->group( function(){
@@ -42,4 +40,13 @@ Route::prefix('profile')->middleware('auth.myuser')->group( function(){
         Route::get('/showlist', [FacturesController::class, 'all'])->name('factures_list');
         Route::view('/list', 'showFactures')->name('view_factures_list');
     });
+});
+
+// patrons 
+Route::prefix('gestion')->middleware('auth.patron')->group( function(){
+    Route::get('/showEmployees', [MyUserController::class, 'employees'])->name('employees_list');
+    Route::view('/employees', 'gestionEmployee')->name('view_employees');
+    Route::post('/adduser', [MyUserController::class, 'create'])->name('user_adduser');
+    Route::post('/changeuser', [MyUserController::class, 'changeLogin'])->name('user_changeuser');
+    Route::post('/deleteuser', [MyUserController::class, 'delete'])->name('user_deleteuser');
 });

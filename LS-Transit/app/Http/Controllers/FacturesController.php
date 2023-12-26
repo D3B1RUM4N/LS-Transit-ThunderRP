@@ -15,7 +15,7 @@ class FacturesController extends Controller
         $tarif = Tarifs::where( 'tarif', $request->vehicule )->first();
         $facture = new Factures;
         $facture->client = $request->client;
-        $facture->login = session('user')->login;
+        $facture->emp = session('user')->id;
         $facture->kilometrique = $request->kilometrique;
         $facture->vehicule = $tarif->vehicule;
         $facture->montant = $request->montant;
@@ -33,7 +33,7 @@ class FacturesController extends Controller
 
     public function all() {
         $factures = Factures::all()->filter(function($facture) {
-            return $facture->login == session('user')->login;
+            return $facture->emp == session('user')->id;
         });
         return view('showFactures', ['factures' => $factures]);
     }

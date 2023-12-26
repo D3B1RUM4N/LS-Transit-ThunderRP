@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('factures', function (Blueprint $table) {
             //counter
             $table->id()->autoIncrement();
-            $table->text('login');
+            $table->integer('emp');
             $table->text('client');
             $table->decimal('kilometrique', 15, 2);
             $table->decimal('montant', 15, 2);
@@ -22,7 +22,7 @@ return new class extends Migration
             $table->date('dateFacture');
             $table->timestamps();
 
-            $table->foreign('login')->references('login')->on('myusers');
+            $table->foreign('emp')->references('id')->on('myusers');
             $table->foreign('vehicule')->references('vehicule')->on('tarifs');
         });
     }

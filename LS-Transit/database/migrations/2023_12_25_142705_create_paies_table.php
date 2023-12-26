@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('paies', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->text('login');
+            $table->integer('emp');
             $table->decimal('montant', 15, 2);
             $table->date('datePaie');
 
-            $table->foreign('login')->references('login')->on('myusers');
+            $table->foreign('emp')->references('id')->on('myusers');
         });
     }
 
