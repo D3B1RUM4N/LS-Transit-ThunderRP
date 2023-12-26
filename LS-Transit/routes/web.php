@@ -34,10 +34,10 @@ Route::prefix('profile')->middleware('auth.myuser')->group( function(){
 
     //factures
     Route::prefix('factures')->group( function(){
-        Route::get('/show', [TarifsController::class, 'all'])->name('factures_new');
+        Route::get('/show', [TarifsController::class, 'allSelect'])->name('factures_new');
         Route::view('/add', 'addFacture')->name('view_facture_add');
         Route::post('/add', [FacturesController::class, 'create'])->name('facture_add');
-        Route::get('/showlist', [FacturesController::class, 'all'])->name('factures_list');
+        Route::get('/showlist', [FacturesController::class, 'empFacture'])->name('factures_list');
         Route::view('/list', 'showFactures')->name('view_factures_list');
     });
 });
@@ -49,4 +49,13 @@ Route::prefix('gestion')->middleware('auth.patron')->group( function(){
     Route::post('/adduser', [MyUserController::class, 'create'])->name('user_adduser');
     Route::post('/changeuser', [MyUserController::class, 'changeLogin'])->name('user_changeuser');
     Route::post('/deleteuser', [MyUserController::class, 'delete'])->name('user_deleteuser');
+
+    Route::get('/showFactures', [FacturesController::class, 'all'])->name('gestion_factures_list');
+    Route::view('/factures', 'gestionFacture')->name('view_factures');
+
+    Route::get('/showTarifs', [TarifsController::class, 'all'])->name('tarifs_list');
+    Route::view('/tarifs', 'gestionTarifs')->name('view_tarifs');
+    Route::post('/addtarif', [TarifsController::class, 'create'])->name('tarif_addtarif');
+    Route::post('/changetarif', [TarifsController::class, 'edit'])->name('tarif_changetarif');
+    Route::post('/deletetarif', [TarifsController::class, 'delete'])->name('tarif_deletetarif');
 });
