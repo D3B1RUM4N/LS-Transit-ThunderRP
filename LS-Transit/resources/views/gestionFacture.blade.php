@@ -4,13 +4,13 @@
 
 @section('content')
     <h2>Liste des factures</h2>
-    <table>
+    <table class="facture-table">
         <thead>
             <tr>
                 <th>Employé</th>
                 <th>Client</th>
-                <th>Kilometrique</th>
-                <th>Vehicule</th>
+                <th>Kilométrique</th>
+                <th>Véhicule</th>
                 <th>Montant</th>
                 <th>Date de la facture</th>
             </tr>
@@ -27,4 +27,23 @@
                 </tr>
             @endforeach
         </tbody>
+    </table>
 @endsection
+
+<style>
+    .facture-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    .facture-table th, .facture-table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    .facture-table th {
+        background-color: #f2f2f2;
+    }
+</style>
