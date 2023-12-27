@@ -37,4 +37,52 @@
             document.getElementById('montant').value = montant.toFixed(2);
         }
     </script>
+
+
+
+    <style>
+        h2 {
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            margin-bottom: 10px;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+        }
+
+        input[type="number"], input[type="date"] {
+            width: calc(100% - 16px);
+            padding: 8px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        h2 + p {
+            margin-top: 10px;
+        }
+    </style>
 @endsection
