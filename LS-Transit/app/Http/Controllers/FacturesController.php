@@ -10,15 +10,14 @@ use App\Models\Tarifs;
 class FacturesController extends Controller
 {
     public function create(Request $request) {
-        if ( !$request->filled(['client','kilometrique','vehicule','montant','dateFacture']) )
+        if ( !$request->filled(['client','kilometrique','tarif','montant','dateFacture']) )
             return to_route('factures_new')->with('message',"Remplissez tout les champs.");
 
-        $tarif = Tarifs::where( 'tarif', $request->vehicule )->first();
         $facture = new Factures;
         $facture->client = $request->client;
         $facture->emp = session('user')->id;
         $facture->kilometrique = $request->kilometrique;
-        $facture->vehicule = $tarif->vehicule;
+        $facture->tarif = $request->tarif;
         $facture->montant = $request->montant;
         $facture->dateFacture = $request->dateFacture;
 

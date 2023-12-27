@@ -18,12 +18,11 @@ return new class extends Migration
             $table->text('client');
             $table->decimal('kilometrique', 15, 2);
             $table->decimal('montant', 15, 2);
-            $table->integer('vehicule');
+            $table->decimal('tarif', 15, 2);
             $table->date('dateFacture');
             $table->timestamps();
 
             $table->foreign('emp')->references('id')->on('myusers');
-            $table->foreign('vehicule')->references('id')->on('tarifs');
         });
     }
 
