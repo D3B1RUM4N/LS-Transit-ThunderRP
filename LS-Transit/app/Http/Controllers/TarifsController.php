@@ -36,13 +36,14 @@ class TarifsController extends Controller
     }
 
     public function edit(Request $request) {
-        if ( !$request->filled(['vehicule','tarif']) )
+        if ( !$request->filled(['id','tarif']) )
             return to_route('tarifs_list')->with('message',"Remplissez tout les champs.");
 
-        $tarif = Tarifs::where( 'vehicule', $request->vehicule )->first();
-        $tarif->tarif = $request->tarif;
+        $tarif = Tarifs::where( 'id', $request->id )->first();
+        $tarif->tarif = (float) $request->tarif;
 
         try {
+            //dd($tarif);
             $tarif->save();
         }
         catch (\Exception $e) {
@@ -53,10 +54,10 @@ class TarifsController extends Controller
     }
 
     public function delete(Request $request) {
-        if ( !$request->filled(['vehicule']) )
+        if ( !$request->filled(['id']) )
             return to_route('tarifs_list')->with('message',"Remplissez tout les champs.");
 
-        $tarif = Tarifs::where( 'vehicule', $request->vehicule )->first();
+        $tarif = Tarifs::where( 'id', $request->id )->first();
         if ( !$tarif )
             return to_route('tarifs_list')->with('message',"Tarif introuvable.");
 

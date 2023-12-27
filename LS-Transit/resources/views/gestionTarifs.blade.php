@@ -5,7 +5,7 @@
 @section('content')
     <h2>Gestion des tarifs</h2>
     <h3>Ajouter un tarif</h3>
-    <form action="{{ route('tarif_addtarif') }}" method="post">
+    <form action="{{ route('tarif_add') }}" method="post">
         @csrf
         <label for="vehicule">Vehicule</label>      <input type="text"     id="vehicule"    name="vehicule"    required autofocus><br>
         <label for="tarif">Tarif</label><input type="number" id="tarif" name="tarif" required> <br>
@@ -25,16 +25,16 @@
                 <tr>
                     <td>{{ $tarif->vehicule }}</td>
                     <td>
-                        <form action="{{ route('tarif_changetarif') }}" method="post">
+                        <form action="{{ route('tarif_change') }}" method="post">
                             @csrf
-                            <input type="hidden" id="vehicule" name="vehicule" value="{{ $tarif->vehicule }}">
+                            <input type="hidden" id="id" name="id" value="{{ $tarif->id }}">
                             <input type="number" id="tarif" name="tarif" value="{{ $tarif->tarif }}" required>
                             <button type="submit" name="action" value="modifier">Modifier</button>
                         </form>
 
-                        <form action="{{ route('tarif_deletetarif') }}" method="post">
+                        <form action="{{ route('tarif_delete') }}" method="post">
                             @csrf
-                            <input type="hidden" id="vehicule" name="vehicule" value="{{ $tarif->vehicule }}">
+                            <input type="hidden" id="id" name="id" value="{{ $tarif->id }}">
                             <button type="submit" name="action" value="supprimer">Supprimer</button>
                         </form>
                     </td>

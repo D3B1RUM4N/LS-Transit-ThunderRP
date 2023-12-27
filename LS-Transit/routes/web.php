@@ -55,7 +55,7 @@ Route::prefix('gestion')->middleware('auth.patron')->group( function(){
 
     Route::get('/showTarifs', [TarifsController::class, 'all'])->name('tarifs_list');
     Route::view('/tarifs', 'gestionTarifs')->name('view_tarifs');
-    Route::post('/addtarif', [TarifsController::class, 'create'])->name('tarif_addtarif');
-    Route::post('/changetarif', [TarifsController::class, 'edit'])->name('tarif_changetarif');
-    Route::post('/deletetarif', [TarifsController::class, 'delete'])->name('tarif_deletetarif');
+    Route::post('/addtarif', [TarifsController::class, 'create'])->name('tarif_add');
+    Route::post('/changetarif', [TarifsController::class, 'edit'])->name('tarif_change');
+    Route::post('/deletetarif', [TarifsController::class, 'delete'])->name('tarif_delete');
 });

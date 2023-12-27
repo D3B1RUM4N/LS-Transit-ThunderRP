@@ -11,7 +11,7 @@
         <label for="kilometrique">Kilometrique : </label>
         <input type="number" id="kilometrique" name="kilometrique" required oninput="calculateAmount()"><br>
         <label for="vehicule">Vehicule : </label>
-        <select id="vehicule" name="vehicule" onchange="calculateAmount()">
+        <select id="tarif" name="tarif" onchange="calculateAmount()">
             @foreach ($vehicules as $vehicule)
                 <option value="{{ $vehicule->tarif }}">{{ $vehicule->vehicule }}</option>
             @endforeach
@@ -30,7 +30,7 @@
     <script>
         function calculateAmount() {
             let kilometrique = document.getElementById('kilometrique').value;
-            let vehicule = document.getElementById('vehicule').value;
+            let vehicule = document.getElementById('tarif').value;
             let montant = kilometrique * vehicule;
 
             // Mettre à jour la valeur du champ Montant
