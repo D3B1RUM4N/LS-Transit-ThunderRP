@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tarifs', function (Blueprint $table) {
-            $table->text('vehicule')->primary();
+            $table->id();
+            $table->text('vehicule');
             $table->decimal('tarif', 15, 2);
         });
     }
