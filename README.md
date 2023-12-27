@@ -22,6 +22,10 @@ Language : French
 ## Fonctionnalité ajoutée :
 - Saisir une facture
 - se connecter au comtpe
+- Modifier le tarif killometrique par vehicule
+- Ajouter/viré des employés
+
+
   
 ## Bug connu :
 - ne pas accéder directement a ``profile/factures/add``, cela provoque une erreur
