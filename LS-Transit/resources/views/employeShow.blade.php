@@ -36,7 +36,34 @@
                 </tr>
             @endforeach
     </table>
-    <h3>Voir l'historique des primes : </h3>
+    <h3>Gestion des primes : </h3>
+    <h4>Nouvelle prime : </h4>
+    <form action="{{route('prime_add')}}" method="post">
+        @csrf
+        <input type="hidden" id="id" name="id" value="{{ $employe->id }}">
+        <label for="montant">Montant : </label>
+        <input type="number" id="montant" name="montant" value="{{ $employe->montant }}" required><br>
+        <label for="date">Date : </label>
+        <input type="date" id="date" name="date" value="{{ date('Y-m-d') }}" required><br>
+        <input type="submit" value="Ajouter">
+    </form>
+
+    <h4>Historique des primes : </h4>
+    <table>
+        <thead>
+            <tr>
+                <th>Montant</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($employe->paies as $paie)
+                <tr>
+                    <td>{{ $paie->montant }}</td>
+                    <td>{{ $paie->datePaie }}</td>
+                </tr>
+            @endforeach
+    </table>
 
     <h3>Supprimer l'employé : </h3>
     <form action="{{route('user_deleteuser')}}" method="post">

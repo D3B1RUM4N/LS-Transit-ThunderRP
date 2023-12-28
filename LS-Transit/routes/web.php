@@ -5,6 +5,7 @@ use App\Http\Controllers\MyUserController;
 use App\Http\Controllers\TarifsController;
 use App\Http\Controllers\FacturesController;
 use App\Http\Controllers\GradesController;
+use App\Http\Controllers\PaieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,4 +69,6 @@ Route::prefix('gestion')->middleware('auth.patron')->group( function(){
 
     Route::post('/employe', [MyUserController::class, 'emp'])->name('employees_show');
     Route::view('/showEmploye', 'employerShow')->name('user_showuser');
+
+    Route::post('/addpaie', [PaieController::class, 'create'])->name('prime_add');
 });

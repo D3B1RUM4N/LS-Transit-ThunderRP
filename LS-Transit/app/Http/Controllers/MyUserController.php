@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\MyUser;
 use App\Models\Factures;
 use App\Models\Grades;
+use App\Models\Paie;
 
 class MyUserController extends Controller
 {
@@ -126,6 +127,9 @@ class MyUserController extends Controller
 			$factures = Factures::all()->filter(function($facture) use ($emp) {
 				return $facture->emp == $emp->id;
 			});
+			$emp->paies = Paie::all()->filter(function($paie) use ($emp) {
+				return $paie->emp == $emp->id;
+			});
 			$emp->factures = $factures;
 			return $emp;
 		});
@@ -153,4 +157,5 @@ class MyUserController extends Controller
 		$user->montant += $montant;
 		$user->save();
 	}
+
 }
