@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\MyUser;
+use App\Models\Factures;
 
 class MyUserController extends Controller
 {
@@ -107,5 +108,22 @@ class MyUserController extends Controller
 			return to_route('employees_list')->with('message',"L'utilisateur n'existe pas.");
 		$user->delete();
 		return to_route('employees_list')->with('message',"Utilisateur supprimé.");
+	}
+
+	public function emp(Request $request) {
+		$emp = MyUser::all()->map(function($emp) {
+			$factures = Factures::all()->filter(function($facture) use ($emp) {
+				return $facture->emp == $emp->id;
+			});
+			$emp->factures = $factures;
+			return $emp;
+		});
+
+		$emp = $emp->filter(function($emp) use ($request) {
+			return $emp->id == $request->id;
+		})->first();
+
+
+		return view('employeShow',['employe' => $emp]);
 	}
 }

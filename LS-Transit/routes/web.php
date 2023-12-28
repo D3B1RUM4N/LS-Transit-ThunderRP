@@ -58,4 +58,7 @@ Route::prefix('gestion')->middleware('auth.patron')->group( function(){
     Route::post('/addtarif', [TarifsController::class, 'create'])->name('tarif_add');
     Route::post('/changetarif', [TarifsController::class, 'edit'])->name('tarif_change');
     Route::post('/deletetarif', [TarifsController::class, 'delete'])->name('tarif_delete');
+
+    Route::post('/employe', [MyUserController::class, 'emp'])->name('employees_show');
+    Route::view('/showEmploye', 'employerShow')->name('user_showuser');
 });
