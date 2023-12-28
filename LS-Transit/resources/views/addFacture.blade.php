@@ -19,7 +19,7 @@
         <label for="montant">Montant : </label>
         <input type="number" id="montant" name="montant"><br>
         <label for="dateFacture">Date de la facture : </label>
-        <input type="date" id="dateFacture" name="dateFacture" required><br>
+        <input type="date" id="dateFacture" name="dateFacture" value="{{ date('Y-m-d') }}" required ><br>
         <input type="submit" value="Ajouter">
     </form>
     <h2>Rappel des tarifs</h2>
