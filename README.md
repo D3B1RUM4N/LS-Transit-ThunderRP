@@ -24,6 +24,9 @@ Language : French
 - se connecter au comtpe
 - Modifier le tarif killometrique par vehicule
 - Ajouter/viré des employés
+- Total des KM parcourus
+- Ajouter une fiche de paie
+
 
 
   
