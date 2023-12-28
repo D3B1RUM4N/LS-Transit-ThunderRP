@@ -29,21 +29,3 @@
         </tbody>
     </table>
 @endsection
-
-<style>
-    .facture-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-    }
-
-    .facture-table th, .facture-table td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: left;
-    }
-
-    .facture-table th {
-        background-color: #f2f2f2;
-    }
-</style>
