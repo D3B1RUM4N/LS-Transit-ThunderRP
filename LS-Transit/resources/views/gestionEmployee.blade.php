@@ -21,6 +21,7 @@
         <thead>
             <tr>
                 <th>Nom</th>
+                <th>kilometrique</th>
                 <th>Admin</th>
                 <th>Afficher</th>
             </tr>
@@ -29,6 +30,7 @@
             @foreach ($employees as $employe)
                 <tr>
                     <td>{{ $employe->login }}</td>
+                    <td>{{ $employe->km }}</td>
                     <td>@if($employe->admin) Oui @else Non @endif</td>
                     <td>
                         <form action="{{ route('employees_show') }}" method="post">

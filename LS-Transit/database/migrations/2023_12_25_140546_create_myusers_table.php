@@ -15,8 +15,12 @@ return new class extends Migration
             $table->id()->autoIncrement();
             $table->text('login')->unique();
 			$table->text('password');
-
+            $table->decimal('km', 15 ,2)->default(0);
+            $table->decimal('montant', 15 ,2)->default(0);
+            $table->integer('grade')->default(0);
             $table->boolean('admin')->default(false);
+            
+            $table->foreign('grade')->references('id')->on('grades');
         });
     }
 

@@ -139,6 +139,7 @@
                 <li><a href="{{ route('employees_list') }}">Gestion des employés</a></li>
                 <li><a href="{{ route('gestion_factures_list') }}">Gestion des factures</a></li>
                 <li><a href="{{ route('tarifs_list') }}">Gestion des tarifs</a></li>
+                <li><a href="{{ route('grades_list') }}">Gestion des grades</a></li>
             @endif
         </ul>
     </nav>

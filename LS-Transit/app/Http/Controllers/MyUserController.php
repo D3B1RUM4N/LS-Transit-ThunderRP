@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\MyUser;
 use App\Models\Factures;
+use App\Models\Grades;
+use App\Models\Paie;
 
 class MyUserController extends Controller
 {
@@ -12,6 +14,15 @@ class MyUserController extends Controller
 	 * Check if there is an Admin, else create it.
 	 */
 	public function test() {
+		$grade = Grades::where('id',0)->first();
+		if ( !$grade ) {
+			$grade = new Grades;
+			$grade->id = 0;
+			$grade->label = 'Employé';
+			$grade->part = 35;
+			$grade->save();
+		}
+
 		$user = MyUser::where('admin',true)->first();
 		if ( !$user ) {
 			$user = new MyUser;
@@ -20,6 +31,7 @@ class MyUserController extends Controller
 			$user->admin = true;
 			$user->save();
 		}
+
 		return to_route('view_signin');
 	}
 
@@ -115,6 +127,9 @@ class MyUserController extends Controller
 			$factures = Factures::all()->filter(function($facture) use ($emp) {
 				return $facture->emp == $emp->id;
 			});
+			$emp->paies = Paie::all()->filter(function($paie) use ($emp) {
+				return $paie->emp == $emp->id;
+			});
 			$emp->factures = $factures;
 			return $emp;
 		});
@@ -126,4 +141,21 @@ class MyUserController extends Controller
 
 		return view('employeShow',['employe' => $emp]);
 	}
+
+	public static function updateKm($id, $km) {
+		$user = MyUser::where('id',$id)->first();
+		if ( !$user )
+			return;
+		$user->km += $km;
+		$user->save();
+	}
+
+	public static function updateMontant($id, $montant) {
+		$user = MyUser::where('id',$id)->first();
+		if ( !$user )
+			return;
+		$user->montant += $montant;
+		$user->save();
+	}
+
 }
