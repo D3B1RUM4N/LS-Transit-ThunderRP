@@ -58,6 +58,15 @@
             margin-bottom: 5px;
         }
 
+        input {
+            margin-bottom: 10px;
+        }
+
+        input[type="number"], input[type="date"] {
+            width: calc(100% - 16px);
+            padding: 8px;
+        }
+
         input[type="text"], input[type="checkbox"] {
             margin-bottom: 10px;
             width: 100%;
@@ -81,6 +90,19 @@
 
         input[type="submit"]:hover {
             background-color: #45a049;
+        }
+
+        select {
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        /* Style pour les options du select */
+        select option {
+            background-color: #fff;
+            color: #333;
         }
 
         table {
