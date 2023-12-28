@@ -23,6 +23,9 @@ class FacturesController extends Controller
 
         try {
             $facture->save();
+
+            MyUserController::updateKm(session('user')->id, $request->kilometrique);
+            MyUserController::updateMontant(session('user')->id, $request->montant);
         }
         catch (\Exception $e) {
             return to_route('factures_new')->with('message',$e->getMessage());

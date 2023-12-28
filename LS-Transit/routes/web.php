@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MyUserController;
 use App\Http\Controllers\TarifsController;
 use App\Http\Controllers\FacturesController;
+use App\Http\Controllers\GradesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,6 +59,12 @@ Route::prefix('gestion')->middleware('auth.patron')->group( function(){
     Route::post('/addtarif', [TarifsController::class, 'create'])->name('tarif_add');
     Route::post('/changetarif', [TarifsController::class, 'edit'])->name('tarif_change');
     Route::post('/deletetarif', [TarifsController::class, 'delete'])->name('tarif_delete');
+
+    Route::get('/showGrades', [GradesController::class, 'all'])->name('grades_list');
+    Route::view('/grades', 'gestionGrades')->name('view_grades');
+    Route::post('/addgrade', [GradesController::class, 'create'])->name('grade_add');
+    Route::post('/changegrade', [GradesController::class, 'edit'])->name('grade_change');
+    Route::post('/deletegrade', [GradesController::class, 'delete'])->name('grade_delete');
 
     Route::post('/employe', [MyUserController::class, 'emp'])->name('employees_show');
     Route::view('/showEmploye', 'employerShow')->name('user_showuser');
