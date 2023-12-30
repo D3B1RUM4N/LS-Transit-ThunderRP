@@ -15,15 +15,16 @@
                 <h4>Total des factures :</h4>
                 <p>{{ $user->montant }} $</p>
             </div>
-            <!-- Ajoutez d'autres éléments ici au besoin -->
+            <div class="panel-item">
+                <h4>Gestion du compte :</h4>
+                <p><a href="changeuser">Changer le mot de passe</a></p>
+            </div>
         </div>
     </div>
     <p><a href="signout">Se deconnecter</a></p>
 @endsection
 
 <style>
-
-
 .panel {
     display: flex;
     flex-wrap: wrap;
