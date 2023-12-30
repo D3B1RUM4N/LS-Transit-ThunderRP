@@ -10,7 +10,9 @@
         <label for="login">Login : </label>
         <input type="text" id="login" name="login" required><br>
         <label for="admin">Admin : </label>
-        <input type="checkbox" id="admin" name="admin" value="admin"><br>
+        <div class="checkbox-wrapper-2">
+            <input type="checkbox" id="admin" name="admin" class="sc-gJwTLC ikxBAC">
+        </div><br>
         <input type="submit" value="Ajouter">
     </form>
 

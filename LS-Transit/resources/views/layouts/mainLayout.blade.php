@@ -68,7 +68,6 @@
         }
 
         input[type="text"], input[type="checkbox"] {
-            margin-bottom: 10px;
             width: 100%;
             padding: 8px;
             box-sizing: border-box;
@@ -122,9 +121,12 @@
             background-color: #f5f5f5;
         }
 
-    </style>
+        </style>
+        @include('css.checkboxSwitch')
+
 </head>
 <body>    
+
     <nav>
         <ul>
             <li><a href="{{ route('view_account') }}">Home</a></li>

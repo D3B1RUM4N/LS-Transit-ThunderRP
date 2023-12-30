@@ -17,7 +17,9 @@
             @endforeach
         </select></br>
         <label for="admin">Admin : </label>
-        <input type="checkbox" id="admin" name="admin" value="admin" @if($employe->admin) checked @endif><br>
+        <div class="checkbox-wrapper-2">
+            <input type="checkbox" id="admin" name="admin" value="admin" class="sc-gJwTLC ikxBAC" @if($employe->admin) checked @endif>
+        </div><br>
         <input type="submit" value="Modifier">
     </form>
     <h3> Historique des factures : </h3>
