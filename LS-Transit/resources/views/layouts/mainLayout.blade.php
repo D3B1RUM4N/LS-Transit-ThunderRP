@@ -74,11 +74,7 @@
             box-sizing: border-box;
         }
 
-        input[type="checkbox"] {
-            margin-left: 4px;
-        }
-
-        input[type="submit"] {
+        button, input[type="submit"] {
             background-color: #4caf50;
             color: white;
             padding: 10px 15px;
@@ -88,7 +84,7 @@
             display: inline-block;
         }
 
-        input[type="submit"]:hover {
+        button ,input[type="submit"]:hover {
             background-color: #45a049;
         }
 
