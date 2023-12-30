@@ -10,6 +10,12 @@
         <input type="hidden" id="id" name="id" value="{{ $employe->id }}">
         <label for="login">Login : </label>
         <input type="text" id="login" name="login" value="{{ $employe->login }}" required><br>
+        <label for="grade">Grade : </label>
+        <select id="grade" name="grade">
+            @foreach ($grades as $grade)
+                <option value="{{ $grade->id }}" @if($employe->grade == $grade->id) selected @endif>{{ $grade->label }}</option>
+            @endforeach
+        </select></br>
         <label for="admin">Admin : </label>
         <input type="checkbox" id="admin" name="admin" value="admin" @if($employe->admin) checked @endif><br>
         <input type="submit" value="Modifier">

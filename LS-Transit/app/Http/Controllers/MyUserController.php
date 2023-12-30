@@ -95,7 +95,7 @@ class MyUserController extends Controller
 	}
 
 	public function changeLogin(Request $request) {
-		if ( !$request->filled(['login']) )
+		if ( !$request->filled(['login', 'grade']) )
 			return to_route('employees_list')->with('message',"Remplissez tout les champs.");
 
 		$user = MyUser::where('id',$request->id)->first();
@@ -106,6 +106,8 @@ class MyUserController extends Controller
 			$user->admin = true;
 		else
 			$user->admin = false;
+
+		$user->grade = $request->grade;		
 		
 		try {
 			$user->save();
@@ -141,8 +143,10 @@ class MyUserController extends Controller
 			return $emp->id == $request->id;
 		})->first();
 
+		$grades = Grades::all();
 
-		return view('employeShow',['employe' => $emp]);
+
+		return view('employeShow',['employe' => $emp, 'grades' => $grades]);
 	}
 
 	public static function updateKm($id, $km) {
