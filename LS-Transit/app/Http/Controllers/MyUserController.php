@@ -135,6 +135,7 @@ class MyUserController extends Controller
 			$emp->paies = Paie::all()->filter(function($paie) use ($emp) {
 				return $paie->emp == $emp->id;
 			});
+			$emp->part = Grades::where('id',$emp->grade)->first()->part;
 			$emp->factures = $factures;
 			return $emp;
 		});

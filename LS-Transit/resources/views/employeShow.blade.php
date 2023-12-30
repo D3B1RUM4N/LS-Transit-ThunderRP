@@ -44,11 +44,12 @@
     </table>
     <h3>Gestion des primes : </h3>
     <h4>Nouvelle prime : </h4>
-    <form action="{{route('prime_add')}}" method="post">
+    <h4>Nouvelle prime : </h4>
+    <form action="{{ route('prime_add') }}" method="post">
         @csrf
         <input type="hidden" id="id" name="id" value="{{ $employe->id }}">
         <label for="montant">Montant : </label>
-        <input type="number" id="montant" name="montant" value="{{ $employe->montant }}" required><br>
+        <input type="number" id="montant" name="montant" value="{{ $employe->montant * $employe->part / 100 }}" required><br>
         <label for="date">Date : </label>
         <input type="date" id="date" name="date" value="{{ date('Y-m-d') }}" required><br>
         <input type="submit" value="Ajouter">
@@ -77,6 +78,5 @@
         <input type="hidden" id="id" name="id" value="{{ $employe->id }}">
         <input type="submit" value="Supprimer">
     </form>
-
     
 @endsection
