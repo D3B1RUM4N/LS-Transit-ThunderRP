@@ -87,7 +87,10 @@ class MyUserController extends Controller
 	 * List of employees.
 	 */
 	public function employees() {
-		$employees = MyUser::all()->sortBy('login')->sortByDesc('admin');
+		$employees = MyUser::all()->sortBy('login')->sortByDesc('admin')->map(function($employees) {
+			$employees->labelGrade = Grades::where('id',$employees->grade)->first()->label;
+			return $employees;
+		});
 		return view('gestionEmployee',['employees' => $employees]);
 	}
 
