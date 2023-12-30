@@ -24,7 +24,16 @@
     </form>
     <h2>Rappel des tarifs</h2>
     @foreach ($vehicules as $vehicule)
-        <p>{{ $vehicule->vehicule }} : {{ $vehicule->tarif }}</p>
+        <table>
+            <tr>
+                <th>Vehicule</th>
+                <th>Tarif</th>
+            </tr>
+            <tr>
+                <td>{{ $vehicule->vehicule }}</td>
+                <td>{{ $vehicule->tarif }}</td>
+            </tr>
+        </table>
     @endforeach
 
     <script>

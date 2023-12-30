@@ -68,17 +68,12 @@
         }
 
         input[type="text"], input[type="checkbox"] {
-            margin-bottom: 10px;
             width: 100%;
             padding: 8px;
             box-sizing: border-box;
         }
 
-        input[type="checkbox"] {
-            margin-left: 4px;
-        }
-
-        input[type="submit"] {
+        button, input[type="submit"] {
             background-color: #4caf50;
             color: white;
             padding: 10px 15px;
@@ -88,7 +83,7 @@
             display: inline-block;
         }
 
-        input[type="submit"]:hover {
+        button ,input[type="submit"]:hover {
             background-color: #45a049;
         }
 
@@ -126,9 +121,12 @@
             background-color: #f5f5f5;
         }
 
-    </style>
+        </style>
+        @include('css.checkboxSwitch')
+
 </head>
 <body>    
+
     <nav>
         <ul>
             <li><a href="{{ route('view_account') }}">Home</a></li>
